@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import bannerimage1 from "../assets/images/big-shoe1.png"
+import bannerimage2 from "../assets/images/big-shoe2.png"
+import bannerimage3 from "../assets/images/big-shoe3.png"
 import image1 from "../assets/images/thumbnail-shoe1.svg"
 import image2 from "../assets/images/thumbnail-shoe2.svg"
 import image3 from "../assets/images/thumbnail-shoe3.svg"
@@ -8,6 +10,16 @@ import Singleshoecard from './Singleshoecard'
 
 
 function Hero() {
+    const shoe=[
+        {thumbnail:image1,
+         banner:bannerimage1},
+         {thumbnail:image2,
+        banner:bannerimage2},
+        {thumbnail:image3,
+         banner:bannerimage3}
+    ]
+
+    const [bannerimage,setBannerimage]=useState(bannerimage2 )
   return (
     <div className='hero flex w-full mx-auto gap-12 xl:flex-row flex-col min-h-screen justify-center relative'>
     
@@ -25,12 +37,22 @@ function Hero() {
         <p className=' font-bold text-4xl font-serif' >250k+ <br /><span className=' font-normal text-xl pt-0 line-clamp-none '>customers</span></p>
     </div>
 </div>
-<div className='rightside -z-20 flex justify-center items-center xl:min-h-screen bg-primary bg-hero bg-cover '>
-    <img width={640} height={500} className='object-contain' src={bannerimage1} alt="" />
-    <div className='flex absolute -bottom-[5%] gap-4'>
-            <Singleshoecard simage={image1} changebannerimage={()=>{}} currentimage="" />
+<div className='rightside -z-20 flex justify-center items-start xl:min-h-screen bg-primary bg-hero bg-cover '>
+    <img width={640} height={500} className='object-contain' src={bannerimage} alt="" />
+
+  
+    <div className='flex absolute -bottom-[5%] gap-4 justify-center items-center cursor-pointer z-50 '>
+       {shoe.map((sshoe)=>(
+        <div key={sshoe} className=' '>
+             <Singleshoecard simage={sshoe} changebannerimage={(oe)=>{setBannerimage(oe)}} 
+             bannerimage={bannerimage} />
+            
+            </div>
+        
+       ))}
+            {/* <Singleshoecard simage={image1} changebannerimage={()=>{}} currentimage="" />
             <Singleshoecard simage={image2} changebannerimage={()=>{}} currentimage="" />
-            <Singleshoecard simage={image3} changebannerimage={()=>{}} currentimage="" />
+            <Singleshoecard simage={image3} changebannerimage={()=>{}} currentimage="" /> */}
             
         
         
