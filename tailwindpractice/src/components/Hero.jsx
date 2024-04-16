@@ -23,7 +23,7 @@ function Hero() {
   return (
     <div className='hero flex w-full mx-auto gap-12 xl:flex-row flex-col min-h-screen justify-center relative'>
     
-<div className='leftside flex flex-col justify-center items-start'>
+<div className='leftside flex flex-col justify-center items-start z-10'>
     <p className=' text-orange-400 font-serif max-sm:text-lg '>Our Summer Collection</p>
     <h1 className='text-7xl font-bold leading-[80px] '> <span className=' absolute right-2/5 bg-white py-2 ' >The New Arrival</span><br /><span className=' text-orange-400 '>Nike</span> Shoes</h1>
     
@@ -37,14 +37,14 @@ function Hero() {
         <p className=' font-bold text-4xl font-serif' >250k+ <br /><span className=' font-normal text-xl pt-0 line-clamp-none '>customers</span></p>
     </div>
 </div>
-<div className='rightside -z-20 flex justify-center items-start xl:min-h-screen bg-primary bg-hero bg-cover '>
+<div className='rightside z-0 flex justify-center items-center xl:min-h-screen bg-primary bg-hero bg-cover '>
     <img width={640} height={500} className='object-contain' src={bannerimage} alt="" />
 
   
-    <div className='flex absolute -bottom-[5%] gap-4 justify-center items-center cursor-pointer z-50 '>
+    <div className='flex absolute -bottom-[5%] gap-4 justify-center items-center z-50 '>
        {shoe.map((sshoe)=>(
-        <div key={sshoe} className=' '>
-             <Singleshoecard simage={sshoe} changebannerimage={(oe)=>{setBannerimage(oe)}} 
+        <div key={sshoe} className=' z-40 '>
+             <Singleshoecard simage={sshoe} changebannerimage={(sshoe)=>{setBannerimage(sshoe)}} 
              bannerimage={bannerimage} />
             
             </div>

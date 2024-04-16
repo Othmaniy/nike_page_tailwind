@@ -12,14 +12,16 @@ function Singleshoecard({simage,changebannerimage,bannerimage}) {
   return (
     <>
         <div className={`border-2 rounded-xl 
-        ${bannerimage===simage.banner?'border-coral-red':'border-transparent'} cursor-pointer max-sm:flex-1 bg-card bg-cover  flex justify-center items-center p-3 z-50
+        ${bannerimage===simage.banner?'border-coral-red':'border-transparent'}  max-sm:flex-1 bg-card bg-cover  flex justify-center items-center p-3 
         `}
-       onClick={handleClick}
+     
         >
             <img src={simage.thumbnail} alt="thumbnail image" 
             width={127}
             height={103}
-            className=' object-contain'
+            className=' object-contain cursor-pointer'
+
+            onClick={handleClick}
             
             />
         </div>
